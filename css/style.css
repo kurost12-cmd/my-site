@@ -109,8 +109,23 @@ a {
   padding: 20px;
 }
 
+.player-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.track-thumb {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
 .now-playing-title {
-  margin: 0 0 12px;
+  margin: 0;
   font-weight: 600;
   color: var(--fg);
 }
@@ -227,13 +242,23 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .playlist li:hover {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(53, 48, 42, 0.05);
   color: var(--fg);
 }
 
 .playlist li.active {
   color: var(--accent);
   font-weight: 600;
+}
+
+.track-download {
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+  white-space: nowrap;
+}
+
+.track-download:hover {
+  color: var(--accent);
 }
 
 .playlist li .track-duration {

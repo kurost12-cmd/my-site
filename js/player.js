@@ -1,7 +1,6 @@
 // bgm/ フォルダに曲を追加したら、ここにも1行追加してください。
 const PLAYLIST = [
-  // { title: "曲名1", src: "bgm/track1.mp3" },
-  // { title: "曲名2", src: "bgm/track2.mp3" },
+  { title: "カフェの午後", src: "bgm/cafe-no-gogo.mp3", thumbnail: "images/cafe-no-gogo.jpg" },
 ];
 
 const audio = document.getElementById("audio");
@@ -13,6 +12,7 @@ const volumeBar = document.getElementById("volumeBar");
 const currentTimeEl = document.getElementById("currentTime");
 const durationEl = document.getElementById("duration");
 const trackTitleEl = document.getElementById("trackTitle");
+const trackThumbEl = document.getElementById("trackThumb");
 const playlistEl = document.getElementById("playlist");
 
 let currentIndex = -1;
@@ -38,10 +38,24 @@ function renderPlaylist() {
 
   PLAYLIST.forEach((track, index) => {
     const li = document.createElement("li");
-    li.textContent = track.title;
     li.dataset.index = index;
     if (index === currentIndex) li.classList.add("active");
     li.addEventListener("click", () => loadTrack(index, true));
+
+    const titleSpan = document.createElement("span");
+    titleSpan.className = "track-title";
+    titleSpan.textContent = track.title;
+    li.appendChild(titleSpan);
+
+    const downloadLink = document.createElement("a");
+    downloadLink.className = "track-download";
+    downloadLink.href = track.src;
+    downloadLink.download = "";
+    downloadLink.textContent = "⬇ ダウンロード";
+    downloadLink.setAttribute("aria-label", `${track.title}をダウンロード`);
+    downloadLink.addEventListener("click", (e) => e.stopPropagation());
+    li.appendChild(downloadLink);
+
     playlistEl.appendChild(li);
   });
 }
@@ -52,6 +66,13 @@ function loadTrack(index, autoplay) {
   const track = PLAYLIST[currentIndex];
   audio.src = track.src;
   trackTitleEl.textContent = track.title;
+
+  if (track.thumbnail) {
+    trackThumbEl.src = track.thumbnail;
+    trackThumbEl.hidden = false;
+  } else {
+    trackThumbEl.hidden = true;
+  }
 
   document.querySelectorAll(".playlist li").forEach((li) => {
     li.classList.toggle("active", Number(li.dataset.index) === currentIndex);
