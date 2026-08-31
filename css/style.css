@@ -1,0 +1,255 @@
+:root {
+  --bg: #0f1115;
+  --bg-alt: #161922;
+  --fg: #e8e8ec;
+  --fg-muted: #9a9ba5;
+  --accent: #6c8cff;
+  --border: #262a35;
+  --radius: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  line-height: 1.7;
+}
+
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(15, 17, 21, 0.85);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--fg);
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+}
+
+.nav a:hover {
+  color: var(--fg);
+}
+
+/* Hero */
+.hero {
+  padding: 80px 0 60px;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  margin: 0 0 12px;
+}
+
+.hero p {
+  color: var(--fg-muted);
+  margin: 0;
+}
+
+/* Sections */
+.section {
+  padding: 60px 0;
+  border-top: 1px solid var(--border);
+}
+
+.section h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+/* Player */
+.player {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.now-playing-title {
+  margin: 0 0 12px;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.player-progress {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.time {
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+  min-width: 36px;
+  text-align: center;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  flex: 1;
+  border-radius: 2px;
+  background: var(--border);
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border: none;
+  border-radius: 50%;
+  background: var(--accent);
+  cursor: pointer;
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.control-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.control-btn--main {
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  color: #0f1115;
+  border: none;
+}
+
+.control-btn--main:hover {
+  filter: brightness(1.1);
+  color: #0f1115;
+}
+
+.volume-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.volume-bar {
+  width: 90px;
+}
+
+.playlist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.playlist li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+}
+
+.playlist li:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--fg);
+}
+
+.playlist li.active {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.playlist li .track-duration {
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+}
+
+.playlist-empty {
+  color: var(--fg-muted);
+  font-size: 0.9rem;
+  padding: 12px 8px 0;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 0;
+  text-align: center;
+  color: var(--fg-muted);
+  font-size: 0.85rem;
+}

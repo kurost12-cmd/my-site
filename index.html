@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Site</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="#" class="logo">MY SITE</a>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#bgm">BGM</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <h1>ようこそ</h1>
+      <p>AIで作ったオリジナルBGMを聴きながらどうぞ。</p>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About</h2>
+      <p>このサイトについての説明をここに書きます。</p>
+    </div>
+  </section>
+
+  <section id="bgm" class="section">
+    <div class="container">
+      <h2>BGM Player</h2>
+
+      <div class="player" id="player">
+        <div class="player-info">
+          <p class="now-playing-title" id="trackTitle">曲を選択してください</p>
+        </div>
+
+        <div class="player-progress">
+          <span class="time" id="currentTime">0:00</span>
+          <input type="range" id="seekBar" class="seek-bar" value="0" min="0" max="100" step="1">
+          <span class="time" id="duration">0:00</span>
+        </div>
+
+        <div class="player-controls">
+          <button id="prevBtn" class="control-btn" aria-label="前の曲">⏮</button>
+          <button id="playBtn" class="control-btn control-btn--main" aria-label="再生">▶</button>
+          <button id="nextBtn" class="control-btn" aria-label="次の曲">⏭</button>
+          <div class="volume-wrap">
+            <span aria-hidden="true">🔊</span>
+            <input type="range" id="volumeBar" class="volume-bar" value="80" min="0" max="100" step="1">
+          </div>
+        </div>
+
+        <ol class="playlist" id="playlist"></ol>
+      </div>
+
+      <audio id="audio" preload="metadata"></audio>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>連絡先情報をここに書きます。</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 My Site</p>
+  </div>
+</footer>
+
+<script src="js/player.js"></script>
+</body>
+</html>
